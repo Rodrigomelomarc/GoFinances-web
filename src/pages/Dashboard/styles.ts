@@ -4,6 +4,10 @@ interface BalanceCardProps {
   txtHeaderColor?: string;
 }
 
+interface TransactionsProps {
+  type: 'income' | 'outcome';
+}
+
 export const BalanceInfo = styled.section`
   height: 144px;
   background: #5636d3;
@@ -126,4 +130,8 @@ export const TransactionsTable = styled.table`
       }
     }
   }
+`;
+
+export const Value = styled.span<TransactionsProps>`
+  color: ${(props) => (props.type === 'income' ? '#12A454' : '#E83F5B')};
 `;

@@ -14,6 +14,7 @@ import {
   TotalCard,
   TransactionsTable,
   BalanceCardsWrapper,
+  Value,
 } from './styles';
 import Header from '../../components/Header';
 
@@ -22,6 +23,7 @@ interface Transaction {
   title: string;
   value: string;
   created_at: string;
+  type: 'income' | 'outcome';
   category: {
     title: string;
   };
@@ -58,7 +60,7 @@ const Dashboard: React.FC = () => {
               <p>Entradas</p>
               <FiArrowUpCircle size={27} color="#12A454" />
             </header>
-            <span>R$ {balance?.income}</span>
+            <span>R$ {balance?.income},00</span>
           </BalanceCard>
 
           <BalanceCard txtHeaderColor="#969CB3">
@@ -66,7 +68,7 @@ const Dashboard: React.FC = () => {
               <p>Saídas</p>
               <FiArrowDownCircle size={27} color="#E83F5B" />
             </header>
-            <span>R$ {balance?.outcome}</span>
+            <span>R$ {balance?.outcome},00</span>
           </BalanceCard>
 
           <TotalCard>
@@ -74,7 +76,7 @@ const Dashboard: React.FC = () => {
               <p>Total</p>
               <FiDollarSign size={27} color="#fff" />
             </header>
-            <span>R$ {balance?.total}</span>
+            <span>R$ {balance?.total},00</span>
           </TotalCard>
         </BalanceCardsWrapper>
       </BalanceInfo>
@@ -92,7 +94,12 @@ const Dashboard: React.FC = () => {
           {transactions.map((transaction) => (
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
-              <td>R$ {transaction.value},00</td>
+              <td>
+                <Value type={transaction.type}>
+                  {transaction.type == 'outcome' && '-'} R$ {transaction.value}
+                  ,00
+                </Value>
+              </td>
               <td>{transaction.category.title}</td>
               <td>{formatDate(transaction.created_at)}</td>
             </tr>
