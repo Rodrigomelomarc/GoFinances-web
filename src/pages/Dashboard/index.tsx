@@ -7,6 +7,7 @@ import {
 
 import api from '../../services/api';
 import formatDate from '../../utils/formatDate';
+import formatValue from '../../utils/formatValue';
 
 import {
   BalanceInfo,
@@ -96,8 +97,7 @@ const Dashboard: React.FC = () => {
               <td>{transaction.title}</td>
               <td>
                 <Value type={transaction.type}>
-                  {transaction.type == 'outcome' && '-'} R$ {transaction.value}
-                  ,00
+                  {formatValue(transaction.value, transaction.type)}
                 </Value>
               </td>
               <td>{transaction.category.title}</td>
