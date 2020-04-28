@@ -45,11 +45,7 @@ const Import: React.FC = () => {
         <h1>Importar uma transação</h1>
         <ImportContainer>
           <div>
-            <DropzoneStyled
-              {...getRootProps({
-                onDrop: (event) => event.stopPropagation(),
-              })}
-            >
+            <DropzoneStyled {...getRootProps()}>
               <input {...getInputProps()} />
               {file ? (
                 <span>
