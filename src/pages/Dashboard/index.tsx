@@ -61,7 +61,7 @@ const Dashboard: React.FC = () => {
               <p>Entradas</p>
               <FiArrowUpCircle size={27} color="#12A454" />
             </header>
-            <span>R$ {balance?.income},00</span>
+            <span>R$ {balance?.income}</span>
           </BalanceCard>
 
           <BalanceCard txtHeaderColor="#969CB3">
@@ -69,7 +69,7 @@ const Dashboard: React.FC = () => {
               <p>Saídas</p>
               <FiArrowDownCircle size={27} color="#E83F5B" />
             </header>
-            <span>R$ {balance?.outcome},00</span>
+            <span>R$ {balance?.outcome}</span>
           </BalanceCard>
 
           <TotalCard>
@@ -77,7 +77,7 @@ const Dashboard: React.FC = () => {
               <p>Total</p>
               <FiDollarSign size={27} color="#fff" />
             </header>
-            <span>R$ {balance?.total},00</span>
+            <span>R$ {balance?.total}</span>
           </TotalCard>
         </BalanceCardsWrapper>
       </BalanceInfo>
