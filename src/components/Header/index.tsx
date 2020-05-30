@@ -11,8 +11,22 @@ const Header: React.FC = () => (
       <img src={logo} alt="GoFinances logo" />
 
       <nav>
-        <NavLink to="/">Listagem</NavLink>
-        <NavLink to="/import">Importar</NavLink>
+        <NavLink
+          activeStyle={{
+            opacity: 1,
+            borderBottom: '1.5px solid #FF872C',
+          }}
+          exact
+          to="/"
+        >
+          Listagem
+        </NavLink>
+        <NavLink
+          activeStyle={{ opacity: 1, borderBottom: '1.5px solid #FF872C' }}
+          to="/import"
+        >
+          Importar
+        </NavLink>
       </nav>
     </Content>
   </Container>

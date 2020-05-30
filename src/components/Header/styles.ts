@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   background: #5636d3;
-  height: 92px;
   padding: 20px 0;
   min-width: 830px;
 `;
@@ -20,6 +19,11 @@ export const Content = styled.div`
 
     a {
       color: #fff;
+      transition: color 400ms;
+      opacity: 0.8;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 10px;
+
       & + a {
         margin-left: 32px;
       }
